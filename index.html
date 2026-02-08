@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBA Gen Z Banking Strategy - Professorial Chair Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --highlight: #e94560;
+            --text: #eee;
+            --text-muted: #aaa;
+            --success: #00d9ff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .meta-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            background: var(--secondary);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        nav a:hover {
+            background: var(--highlight);
+            transform: translateY(-2px);
+        }
+
+        section {
+            background: var(--secondary);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: var(--success);
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid var(--highlight);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--highlight);
+            margin: 25px 0 15px;
+            font-size: 1.5em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--success);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: var(--text-muted);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--accent);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background: var(--highlight);
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-item {
+            background: var(--accent);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--highlight);
+        }
+
+        .feature-item h4 {
+            color: var(--success);
+            margin-bottom: 10px;
+        }
+
+        .alert {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid;
+        }
+
+        .alert-warning {
+            background: rgba(233, 69, 96, 0.1);
+            border-color: var(--highlight);
+        }
+
+        .alert-info {
+            background: rgba(0, 217, 255, 0.1);
+            border-color: var(--success);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            margin: 20px 0;
+            background: var(--accent);
+            border-radius: 10px;
+            border-left: 4px solid var(--success);
+        }
+
+        .timeline-item h4 {
+            color: var(--success);
+            margin-bottom: 10px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--highlight) 0%, var(--accent) 100%);
+            padding: 50px;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--success);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 217, 255, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.5em; }
+            nav ul { flex-direction: column; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>UBA Professorial Chair in Finance</h1>
+            <p class="subtitle">Gen Z Banking Strategy & Product Development</p>
+            <div class="meta">
+                <div class="meta-item">📍 University of Lagos</div>
+                <div class="meta-item">👤 Prof. A. I. Lawal</div>
+                <div class="meta-item">📅 February 2026</div>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#executive">Executive Summary</a></li>
+                <li><a href="#market">Market Analysis</a></li>
+                <li><a href="#strategy">Strategy</a></li>
+                <li><a href="#product">Product Roadmap</a></li>
+                <li><a href="#budget">Budget</a></li>
+                <li><a href="#academic">Academic Integration</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+            </ul>
+        </nav>
+
+        <section id="executive">
+            <h2>📊 Executive Summary</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">60M+</div>
+                    <div class="stat-label">Gen Z Target Market</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">₦957M</div>
+                    <div class="stat-label">18-Month Investment</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">15-20%</div>
+                    <div class="stat-label">Target Market Share</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1M+</div>
+                    <div class="stat-label">Users by Month 18</div>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Strategic Positioning:</strong> "UBA Pulse" - A digital-native sub-brand combining fintech speed with UBA's institutional stability. <em>"Where Speed Meets Stability"</em>
+            </div>
+
+            <h3>Key Highlights</h3>
+            <ul>
+                <li><strong>Product:</strong> UBA Pulse mobile banking app targeting Gen Z (25.8-31.8% of Nigeria's population)</li>
+                <li><strong>Timeline:</strong> MVP in 6 months, Full Launch in 18 months</li>
+                <li><strong>Differentiation:</strong> Cross-border payments (20 countries), AI-powered Leo 2.0, premium banking products</li>
+                <li><strong>Academic Output:</strong> 8 publications in Q1/A* journals, 3 new degree programs</li>
+                <li><strong>Expected ROI:</strong> Break-even by Month 24, ₦50B+ deposits by Month 18</li>
+            </ul>
+        </section>
+
+        <section id="market">
+            <h2>📈 Market Analysis & Opportunity</h2>
+
+            <h3>The Gen Z Demographic Imperative</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Implication</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gen Z Population</td>
+                        <td>60M+ (25.8-31.8%)</td>
+                        <td>Massive addressable market</td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Banking Usage</td>
+                        <td>99% monthly</td>
+                        <td>Digital-first generation</td>
+                    </tr>
+                    <tr>
+                        <td>OPay Market Share</td>
+                        <td>63.9%</td>
+                        <td>Fintech dominance</td>
+                    </tr>
+                    <tr>
+                        <td>Crypto Investment</td>
+                        <td>42% invested</td>
+                        <td>High-risk appetite</td>
+                    </tr>
+                    <tr>
+                        <td>Savings Rate</td>
+                        <td>68% save 5%+</td>
+                        <td>Financial awareness</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ Strategic Threat:</strong> Ignoring Gen Z = Strategic Suicide. Over 70% of Nigeria's population is under 30. If UBA loses Gen Z now, they lose the next 40 years of banking customers.
+            </div>
+
+            <h3>UBA's Unique Advantages</h3>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h4>✅ Trust & Stability</h4>
+                    <p>75+ years, ₦500B+ capital, NDIC insurance</p>
+                </div>
+                <div class="feature-item">
+                    <h4>✅ Global Reach</h4>
+                    <p>20-country presence (Africa, US, UK, France)</p>
+                </div>
+                <div class="feature-item">
+                    <h4>✅ Product Depth</h4>
+                    <p>Full banking suite (loans, investments, insurance)</p>
+                </div>
+                <div class="feature-item">
+                    <h4>✅ AI Leadership</h4>
+                    <p>Leo chatbot (6 years, 5.8M users)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="strategy">
+            <h2>🎯 Strategic Recommendations</h2>
+
+            <h3>Hybrid Brand Approach: "UBA Pulse"</h3>
+            <p><strong>Tagline:</strong> <em>"Your Vibe. Your Money. Your Future."</em></p>
+
+            <div class="alert alert-info">
+                <strong>Recommended Strategy:</strong> Launch "UBA Pulse" as a distinct sub-brand with its own visual identity and app experience, while maintaining backend integration with UBA's core infrastructure.
+            </div>
+
+            <h3>Competitive Positioning</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>OPay</th>
+                        <th>Kuda</th>
+                        <th>UBA Pulse</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Account Opening</td>
+                        <td>&lt; 5 min</td>
+                        <td>&lt; 3 min</td>
+                        <td><strong>&lt; 3 min</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Transfer Speed</td>
+                        <td>Instant</td>
+                        <td>Instant</td>
+                        <td><strong>Instant</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Free Transfers/Month</td>
+                        <td>Unlimited</td>
+                        <td>25</td>
+                        <td><strong>50</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Cross-Border Payments</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td><strong>✅ (20 countries)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Investment Products</td>
+                        <td>❌</td>
+                        <td>Limited</td>
+                        <td><strong>✅ Full suite</strong></td>
+                    </tr>
+                    <tr>
+                        <td>AI Chatbot</td>
+                        <td>Basic</td>
+                        <td>❌</td>
+                        <td><strong>✅ Leo 2.0</strong></td>
+                    </tr>
+                    <tr>
+                        <td>NDIC Insurance</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                        <td><strong>✅ ₦5M</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Target Segments</h3>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h4>🎓 Future Leaders (Primary)</h4>
+                    <p>University students, tech workers, creators (₦100K-₦500K/month)</p>
+                </div>
+                <div class="feature-item">
+                    <h4>✈️ Diaspora Kids (Secondary)</h4>
+                    <p>Gen Z with family abroad, need remittances & multi-currency</p>
+                </div>
+                <div class="feature-item">
+                    <h4>💼 Hustlers & Creators (Tertiary)</h4>
+                    <p>Freelancers, gig workers (₦50K-₦200K/month)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="product">
+            <h2>🚀 Product Development Roadmap</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Phase 1: MVP (Months 1-6)</h4>
+                    <ul>
+                        <li>Instant account opening (BVN + selfie, &lt;3 min)</li>
+                        <li>Lightning-fast transfers (2-tap flow)</li>
+                        <li>Leo 2.0 AI assistant (WhatsApp/Instagram integration)</li>
+                        <li>Bill payments hub (airtime, data, electricity, cable TV)</li>
+                        <li>Security framework (biometric, fraud detection)</li>
+                    </ul>
+                    <p><strong>Milestone:</strong> 100K active users</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Phase 2: Enterprise (Months 7-12)</h4>
+                    <ul>
+                        <li>Cross-border payments (PAPSS, 20 countries)</li>
+                        <li>Investment & savings (stocks, mutual funds, crypto on-ramp)</li>
+                        <li>Lifestyle integration (cashback, split bills, virtual cards)</li>
+                        <li>ESG features (carbon tracking, green savings)</li>
+                    </ul>
+                    <p><strong>Milestone:</strong> 500K active users</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Phase 3: Advanced (Months 13-18)</h4>
+                    <ul>
+                        <li>Blockchain features (KYC, escrow, NFT wallet)</li>
+                        <li>Open banking platform (API marketplace)</li>
+                        <li>Embedded finance (e-commerce integration)</li>
+                    </ul>
+                    <p><strong>Milestone:</strong> 1M+ users, ₦50B+ deposits</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="budget">
+            <h2>💰 Budget & Resource Requirements</h2>
+
+            <h3>Investment Breakdown (18 Months)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>MVP (M1-6)</th>
+                        <th>Enterprise (M7-12)</th>
+                        <th>Advanced (M13-18)</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Development</td>
+                        <td>₦120M</td>
+                        <td>₦80M</td>
+                        <td>₦60M</td>
+                        <td><strong>₦260M</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Infrastructure</td>
+                        <td>₦60M</td>
+                        <td>₦50M</td>
+                        <td>₦40M</td>
+                        <td><strong>₦150M</strong></td>
+                    </tr>
+                    <tr>
+                        <td>AI/ML</td>
+                        <td>₦40M</td>
+                        <td>₦30M</td>
+                        <td>₦10M</td>
+                        <td><strong>₦80M</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Security & Compliance</td>
+                        <td>₦30M</td>
+                        <td>₦20M</td>
+                        <td>₦10M</td>
+                        <td><strong>₦60M</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Marketing</td>
+                        <td>₦50M</td>
+                        <td>₦80M</td>
+                        <td>₦70M</td>
+                        <td><strong>₦200M</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Operations</td>
+                        <td>₦30M</td>
+                        <td>₦40M</td>
+                        <td>₦50M</td>
+                        <td><strong>₦120M</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Contingency (10%)</td>
+                        <td>₦33M</td>
+                        <td>₦30M</td>
+                        <td>₦24M</td>
+                        <td><strong>₦87M</strong></td>
+                    </tr>
+                    <tr style="background: var(--highlight);">
+                        <td><strong>TOTAL</strong></td>
+                        <td><strong>₦363M</strong></td>
+                        <td><strong>₦330M</strong></td>
+                        <td><strong>₦264M</strong></td>
+                        <td><strong>₦957M</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 20px;"><em>Budget assumes ₦1,500/$1 exchange rate (~$638K USD total)</em></p>
+        </section>
+
+        <section id="academic">
+            <h2>🎓 Academic Research Integration</h2>
+
+            <h3>Research Themes & Publications</h3>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h4>Digital Banking Adoption</h4>
+                    <p>Gen Z preferences, AI in decision-making</p>
+                    <p><strong>Target:</strong> 2 publications in Q1 journals</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Financial Technology</h4>
+                    <p>Blockchain payments, open banking</p>
+                    <p><strong>Target:</strong> 2 publications (1 A*, 1 Q1)</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Sustainable Finance</h4>
+                    <p>ESG integration, carbon tracking</p>
+                    <p><strong>Target:</strong> 2 publications (1 Nature, 1 Q1)</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Macro-Financial Stability</h4>
+                    <p>Fintech competition, financial inclusion</p>
+                    <p><strong>Target:</strong> 2 publications in Q1 journals</p>
+                </div>
+            </div>
+
+            <h3>Curriculum Development</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Program</th>
+                        <th>Timeline</th>
+                        <th>Focus Areas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BSc in FinTech</td>
+                        <td>Draft by March 2026</td>
+                        <td>Blockchain, AI, Digital Payments, Cybersecurity</td>
+                    </tr>
+                    <tr>
+                        <td>MSc in FinTech & Data Analytics</td>
+                        <td>Draft by April 2026</td>
+                        <td>Digital Banking, DeFi, AI, RegTech</td>
+                    </tr>
+                    <tr>
+                        <td>PhD in FinTech</td>
+                        <td>Q3 2026</td>
+                        <td>Innovation, Regulation, Adoption</td>
+                    </tr>
+                    <tr>
+                        <td>PhD in Sustainable Finance</td>
+                        <td>Q3 2026</td>
+                        <td>ESG, Green Finance, Impact Investing</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Student Engagement (3 Years)</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">PhD Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">MSc Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">30</div>
+                    <div class="stat-label">Undergrad Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">60</div>
+                    <div class="stat-label">UBA Internships</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline">
+            <h2>📅 Implementation Timeline</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Q1 2026 (Months 1-3)</h4>
+                    <ul>
+                        <li>Secure executive approval and budget (₦957M)</li>
+                        <li>Assemble core team (18 people)</li>
+                        <li>Complete UI/UX design</li>
+                        <li>Set up development environment (AWS/Azure)</li>
+                        <li>Initiate CBN licensing process</li>
+                        <li>Launch research projects</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Q2 2026 (Months 4-6)</h4>
+                    <ul>
+                        <li>Complete MVP development</li>
+                        <li>Conduct beta testing (1,000 users)</li>
+                        <li>Finalize marketing strategy</li>
+                        <li><strong>PUBLIC LAUNCH (Month 6)</strong></li>
+                        <li>Submit BSc/MSc FinTech curriculum drafts</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Q3-Q4 2026 (Months 7-12)</h4>
+                    <ul>
+                        <li>Roll out cross-border payments & investments</li>
+                        <li>Implement lifestyle & ESG features</li>
+                        <li>Scale to 500K users</li>
+                        <li>Submit first academic publications</li>
+                        <li>Host UBA-UNILAG Finance Colloquium</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Q1-Q2 2027 (Months 13-18)</h4>
+                    <ul>
+                        <li>Launch blockchain & open banking features</li>
+                        <li>Expand to 1M+ users</li>
+                        <li>Achieve ₦50B+ deposits, ₦200B+ transactions</li>
+                        <li>Reach break-even</li>
+                        <li>Enroll first cohort in new FinTech programs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2>🎯 Strategic Imperative</h2>
+            <p style="font-size: 1.2em; margin: 20px 0;">
+                UBA Pulse is not just an app - it's a platform for the next generation of African banking.
+            </p>
+            <p style="margin: 20px 0;">
+                By combining fintech speed with bank stability and global reach, UBA can capture 15-20% of the Gen Z market while building a sustainable competitive advantage.
+            </p>
+            <div style="margin-top: 30px;">
+                <a href="#executive" class="cta-button">Review Strategy</a>
+                <a href="mailto:professorchair@unilag.edu.ng" class="cta-button">Contact Chair</a>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Prof. A. I. Lawal</strong> | UBA Professorial Chair in Finance</p>
+            <p>Department of Finance, University of Lagos</p>
+            <p>Document Version 1.0 | February 8, 2026 | Confidential - Internal Use Only</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
